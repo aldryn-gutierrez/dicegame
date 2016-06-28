@@ -1,27 +1,61 @@
-## Laravel PHP Framework
+## Dice Game
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Your company would like to develop an online dice game. The game rules are as below:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+1. The game contains 4 players.
+2. Each player will have 6 dice in their dice up.
+3. Each round all players will roll their dice at the same time.
+4. All dice with number 1 on top side will be passed to player on his right hand (the right most player
+will pass the dice to left most player)
+5. All dice with number 6 on top side will be removed from their dice cup.
+6. All players roll their dice again to start next round.
+7. The player who first emptied their dice cup (could be more than 1 player) is winner(s).
+You are required to write a PHP code to simulate this game and print out the result of each round until
+winner(s) is found.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Example of output:
 
-## Official Documentation
+Round 1
+After dice rolled:
+Player A: 3, 4, 5, 6, 1, 1
+Player B: 5, 4, 5, 4, 3, 1
+Player C: 6, 6, 6, 3, 2, 4
+Player D: 5, 1, 3, 2, 4, 1
+After dice moved/removed:
+Player A: 3, 4, 5, 1 ,1
+Player B: 5, 4, 5, 4, 3, 1, 1
+Player C: 3, 2, 4, 1
+Player D: 5, 3, 2, 4
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+Round 2:
+After dice rolled:
+Player A: 2, 3, 6, 2, 6
+Player B: 6, 6, 6, 4, 1, 3
+Player C: 3, 2, 1, 6
+Player D: 6, 6, 1, 2
+After dice moved/removed:
+Player A: 2, 3, 2, 1
+Player B: 4, 1, 3
+Player C: 3, 2, 1
+Player D: 2, 1
 
-## Contributing
+(Repeat until winner(s) is found)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+## Running Code
 
-## Security Vulnerabilities
+To run the code run in console:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+php artisan play:game
 
-### License
+## Core Files
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+app\Console\Commands\PlayGame.php
+
+app\Libraries\GameHelper.php
+
+app\Models\Dice.php
+app\Models\DiceCup.php
+app\Models\Player.php
+
+app\test\DiceTest.php
+app\test\DiceCupTest.php
