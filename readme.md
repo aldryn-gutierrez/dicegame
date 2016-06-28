@@ -16,27 +16,51 @@ winner(s) is found.
 Example of output:
 
 Round 1
+
 After dice rolled:
+
 Player A: 3, 4, 5, 6, 1, 1
+
 Player B: 5, 4, 5, 4, 3, 1
+
 Player C: 6, 6, 6, 3, 2, 4
+
 Player D: 5, 1, 3, 2, 4, 1
+
+
 After dice moved/removed:
+
 Player A: 3, 4, 5, 1 ,1
+
 Player B: 5, 4, 5, 4, 3, 1, 1
+
 Player C: 3, 2, 4, 1
+
 Player D: 5, 3, 2, 4
 
+
+
 Round 2:
+
 After dice rolled:
+
 Player A: 2, 3, 6, 2, 6
+
 Player B: 6, 6, 6, 4, 1, 3
+
 Player C: 3, 2, 1, 6
+
 Player D: 6, 6, 1, 2
+
+
 After dice moved/removed:
+
 Player A: 2, 3, 2, 1
+
 Player B: 4, 1, 3
+
 Player C: 3, 2, 1
+
 Player D: 2, 1
 
 (Repeat until winner(s) is found)
